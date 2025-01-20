@@ -1,0 +1,24 @@
+{
+  "name": "wisflux_task_1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ashutoshdhaked/wisflux_task_1#readme",
+  "bugs": {
+    "url": "https://github.com/ashutoshdhaked/wisflux_task_1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashutoshdhaked/wisflux_task_1.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "lodash.js",
+  "scripts": {
+     "start" :"node lodash.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
