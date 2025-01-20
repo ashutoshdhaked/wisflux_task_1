@@ -1,7 +1,7 @@
 const members = [
   { name: "Aman Makhija", age: 20 },
   { name: "Suresh Jsharma", age: 40 },
-  { name: "Vijay Sahu", age: 41 },
+  { name: "Vijay Kumar Sahu", age: 41 },
   { name: "Rakesh Srivastava", age: 17 },
   { name: "Chandraprakash Sharma" },
   { name: "Swpril Ahuja", age: 45 },
@@ -23,36 +23,18 @@ const getFirstName = (name) => {
 const names = members.map((user) => {
   return getFirstName(user.name);
 });
-//   console.log(names);
+  console.log(names);
 
 // 2. Make everyone's last names in UPPERCASE in given array of objects
 
-const upperCase = (name) => {
-  let key = " ";
-  let lastName = "";
-  let firstName = "";
-  for (let i = 0; i < name.length; i++) {
-    if (name[i] === key) {
-      lastName = name.slice(i++, name.length);
-      break;
-    }
-    firstName = firstName + name[i];
-  }
-  const upperCaseLastName = lastName.toUpperCase();
-  return firstName + " " + upperCaseLastName;
-};
+const lastNameInUpperCase = members.map((user)=>{
+    const names =   user.name.split(" ");
+     const lastName = names.pop();
+     user.name =  names.join(" ") + " " + lastName.toUpperCase();
+    return user;
+}) 
 
-const makeLastNameUpperCase = (obj) => {
-  obj.name = upperCase(obj.name);
-  return obj.name;
-};
-
-const lastNameInUpperCase = members.map((user) => {
-  makeLastNameUpperCase(user);
-  return user;
-});
-
-// console.log(lastNameInUpperCase);
+console.log(lastNameInUpperCase);
 
 // 3. Get entries where age is between 41-60
 
@@ -261,5 +243,5 @@ const renameObjElement = ()=>{
       return acc;
     },{});
 
-    console.log(obj3);
+    // console.log(obj3);
     
