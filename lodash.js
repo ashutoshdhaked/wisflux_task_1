@@ -37,12 +37,7 @@ const users = _.filter(members, (user) => {
 // 4. Get average age
 
 const getAverageAge = () => {
-  let sum = 0;
-  for (let i = 0; i < members.length; i++) {
-    if (members[i].age) {
-      sum = sum + members[i].age;
-    }
-  }
+ let sum  = _.sumBy(members,(m)=>m.age);
   const avg = sum / members.length;
   return avg;
 };
@@ -51,18 +46,11 @@ const averageAge = getAverageAge();
 //  console.log(averageAge);
 
 // 5. Get Person with maximum age
-const maxAge = _.reduce(members, (user, acc) => {
-  if (acc.age < user.age) {
-    return user;
-  }
-  return acc;
-});
-
+const maxAge =  _.maxBy(members,(m)=>m.age)
+console.log(maxAge);
 const maxAge2 = _.maxBy(members,'age');
 console.log(maxAge2);
    
-
-console.log(maxAge);
 
 // 6. Divide persons in three groups, result should look like
 //     {
@@ -72,26 +60,20 @@ console.log(maxAge);
 //     }
 //     Less than 35yrs is young, above 35 is old
 
-const groups = () => {
-  const obj = {
-    old: [],
-    young: [],
-    noage: [],
-  };
-  _.map(members, (user) => {
-    if (!user.age) {
-      obj.noage.push(user);
-    } else if (user.age < 35) {
-      obj.young.push(user);
-    } else {
-      obj.old.push(user);
+ const groups = _.groupBy(members,(member)=>{
+  if(!member.age) {
+    return "no age"
+  }
+  if (member.age < 35) {
+    return "young"  }
+
+    else {
+      return "old"
     }
-  });
+})
+ console.log(groups);
+ 
 
-  console.log(obj);
-};
-
-// groups();
 
 // 7. add a new member to same members array instance at index 2
 members.splice(2, 0, { name: "Ajay Kumar Sharma", age: 56 });
@@ -196,6 +178,5 @@ const renameProperty = ()=>{
           //  console.log(obj3);
             
      
-        
      
 
